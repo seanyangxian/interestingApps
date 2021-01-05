@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video platform Preference Survey</title>
+    <link href="../static/index.css" rel='stylesheet'>
+</head>
+<body class="background">
+    <div class="container">
+        <h1>Video platform Preference Survey</h1>
+        <h3>Please fill in the survey to obtain the interesting survey result!</h3>
+        <div class="fail-message">{{text | safe}}</div>
+        <form action="{{url_for('complete')}}" method='POST'>
+            <input title='Your email will be safe with us' placeholder="Enter your email address" type="email" name='email_address' required> <br>
+            <input title='You data will be safe with us' placeholder="Enter your age" type="number" min='0' max='150' step=1 name='age_number' required> <br>
+            <label for="video-platform">Please choose the video platform you use the most to watch videos:</label>
+            <select id="video-platform" name="video-platform" required>
+                <option value="" selected disabled>Please select</option>
+                <option value="youtube">Youtube</option>
+                <option value="bilibili">Bilibili</option>
+                <option value="tiktok">Tiktok</option>
+                <option value="instagram">Instagram</option>
+                <option value="twitch">Twitch</option>
+                <option value="vimeo">Vimeo</option>
+                <option value="other">Other</option>
+            </select>
+            <br><br>    
+            <button type="submit">Submit</button>   
+        </form>
+    </div>
+</body>
+</html>
