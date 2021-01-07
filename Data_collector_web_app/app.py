@@ -39,7 +39,7 @@ def complete():
             average_age = round(db.session.query(func.avg(Data.age)).scalar(), 1)
             total_users = db.session.query(Data).count()
             preference_percentage = round(db.session.query(Data).filter(Data.preference == preferred_platform).count() /
-                                          total_users, 3)
+                                          total_users, 3)*100
             send_email(email, age, preferred_platform, average_age, preference_percentage, total_users)
             return render_template('success.html')
     return render_template('index.html', text="Oops, seems like this email already has data in our database, "
